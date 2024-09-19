@@ -1,7 +1,8 @@
 // import react stuff
-import React, { createContext, useState } from 'react';
+import React, { createContext, FC, useEffect, useState } from 'react';
 // import component to create todos
 import TodoInputComponent from './components/todosInputComponent/TodoInputComponent';
+import { log } from 'console';
 
 // create a type for todos
 export interface Todos {
@@ -22,15 +23,28 @@ interface TodoStateType {
 export const TodosContext = createContext<TodoStateType | null>(null);
 
 // app component
-function App() {
+const App : FC = () => {
 
   // todos states
   const [todos, setTodos] = useState<Todos[] | null>([]);
 
-  // TODO: initialize localStorage using useEffect
-  // TODO: - if empty create a empty array to save states
-  // TODO: - if have something, get it and load on state 
+  useEffect(() => {
+    // initialize localStorage
+    const todosFromLocalStorage = localStorage.getItem("McTodos")
+  
+    // if have initialized local Storage once
+    if (todosFromLocalStorage) {
+      // get data from localStorage and put on state
+      const jsonTodos = JSON.parse(todosFromLocalStorage)
+      setTodos (jsonTodos)
+    }else { // if first time
+      // create a empty array and put on localStorage
+      const jsonForLocalStorage = JSON.stringify([])
+      localStorage.setItem("McTodos", jsonForLocalStorage)
+    }
+  } ,[])
 
+  
   return (
     // create a provider for context and pass states
     <TodosContext.Provider value={{ todos, setTodos }}>
