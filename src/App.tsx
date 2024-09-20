@@ -2,7 +2,6 @@
 import React, { createContext, FC, useEffect, useState } from 'react';
 // import component to create todos
 import TodoInputComponent from './components/todosInputComponent/TodoInputComponent';
-import { log } from 'console';
 
 // create a type for todos
 export interface Todos {
@@ -14,8 +13,9 @@ export interface Todos {
 // create a type for context (to hold todos state) 
 interface TodoStateType {
   todos: Todos[] | null;  
-  setTodos: React.Dispatch<React.SetStateAction<Todos[] | null>>;
+  setTodos: React.Dispatch<React.SetStateAction<Todos[]>>;
 }
+
 
 // create context for todos, receive 2 types :
 //  - null : to initialize empty
@@ -26,7 +26,9 @@ export const TodosContext = createContext<TodoStateType | null>(null);
 const App : FC = () => {
 
   // todos states
-  const [todos, setTodos] = useState<Todos[] | null>([]);
+  const [todos, setTodos] = useState<Todos[] >([]);
+
+  console.log(todos)
 
   useEffect(() => {
     // initialize localStorage
