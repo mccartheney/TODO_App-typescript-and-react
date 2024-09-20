@@ -11,7 +11,6 @@ const TodoInputComponent : FC = () => {
     // create ref to get input value
     const todoInput = useRef <HTMLInputElement | null > (null)
 
-    // Type Guard for null Context:
     // if context is null warn to prevent the app broke
     if (!todosFromContext) {
         return <h1>No todos props received from todoInput</h1>
@@ -19,8 +18,8 @@ const TodoInputComponent : FC = () => {
     
     // descontruture todos from context
     const { todos, setTodos } = todosFromContext;
-
-    const addTodo = (event : React.FormEvent<HTMLFormElement>) => {
+    
+    const createTodo = (event : React.FormEvent<HTMLFormElement>) => {
         // prevent when form submit reload page
         event.preventDefault()
 
@@ -39,13 +38,14 @@ const TodoInputComponent : FC = () => {
             value : todoValue,
             done : done
         }
-        
+
         // add todo on the list of todos
         setTodos (oldTodos => [...oldTodos , todoItem])
-    
+
+        const newTodos = [...todos, todoItem]
+        
         // update data on localStorage
-        const newTodos : string = JSON.stringify(todos)
-        localStorage.setItem("McTodos", newTodos)
+        localStorage.setItem("McTodos", JSON.stringify(newTodos))
     }
 
     return(
@@ -55,7 +55,7 @@ const TodoInputComponent : FC = () => {
             </div>
             
             <div className="todoInput_input">
-                <form onSubmit={(event) => addTodo(event)}>
+                <form onSubmit={(event) => createTodo(event)}>
                     <input type="submit" hidden />
                     <input type="text" placeholder="Create a new Todo" ref={todoInput} />
                 </form>
