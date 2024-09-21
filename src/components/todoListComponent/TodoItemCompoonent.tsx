@@ -1,6 +1,5 @@
 import { FC, FormEvent, useContext, useEffect, useRef, useState } from "react"
 import { Todos, TodosContext } from "../../App"
-import { log } from "console"
 
 
 const TodoItem: FC<Todos> = (props) => {
@@ -51,6 +50,8 @@ const TodoItem: FC<Todos> = (props) => {
         todoInputRef.current?.focus()
     }
 
+    // TODO: on change is need change todos to 
+
     // function to change todo state
     const changeTodoState = () => {
         // initilize checked
@@ -60,26 +61,34 @@ const TodoItem: FC<Todos> = (props) => {
         if (checkBoxRef.current!.checked) checked = true 
         else checked = false
     
-        // set a new todos (modify to check this todo)
-        const newTodos = todos.map(todoItem => {
-            if (todoItem.id === id) {
-                // modify done of this state
-                const newTodoItem: Todos = {
-                    id: id,
-                    value: value,
-                    done: checked
+        const oldTodos = localStorage.getItem("McTodos")
+
+        if (oldTodos) {
+        
+            // set a new todos (modify to check this todo)
+            const newTodos = JSON.parse(oldTodos).map((todoItem : Todos) => {
+                if (todoItem.id === id) {
+                    // modify done of this state
+                    const newTodoItem: Todos = {
+                        id: id,
+                        value: value,
+                        done: checked
+                    }
+                    
+                    // return the modified todo
+                    return newTodoItem
                 }
                 
-                // return the modified todo
-                return newTodoItem
-            }
-            
-            // return the old todo
-            return todoItem
-        })
+                // return the old todo
+                return todoItem
+            })
+            // update localstorage
+            localStorage.setItem("McTodos", JSON.stringify(newTodos))
+        }
 
-        // update localstorage
-        localStorage.setItem("McTodos", JSON.stringify(newTodos))
+        
+
+
     }
 
     // funtion to edit todo value
@@ -90,26 +99,32 @@ const TodoItem: FC<Todos> = (props) => {
         todoInputRef.current!.readOnly = true 
         todoInputRef.current!.blur() 
 
-        // set a new todos (modify to check this todo)
-        const newTodos = todos.map(todoItem => {
-            // if it is that todo
-            if (todoItem.id === id) {
-                // modify done of this state
-                const newTodoItem : Todos = {
-                    id : id,
-                    value: todoInputValue,
-                    done: done
-                } 
-                // return the modified todo
-                return newTodoItem
-            }
-            // return the old todo
-            return todoItem
-        })
-        
-        // update localstorage
-        localStorage.setItem("McTodos", JSON.stringify(newTodos))
-        
+        const oldTodos = localStorage.getItem("McTodos")
+
+        if (oldTodos){
+
+            const parsedTodos = JSON.parse(oldTodos)
+
+            // set a new todos (modify to check this todo)
+            const newTodos = parsedTodos.map((todoItem : Todos) => {
+                // if it is that todo
+                if (todoItem.id === id) {
+                    // modify done of this state
+                    const newTodoItem : Todos = {
+                        id : id,
+                        value: todoInputValue,
+                        done: done
+                    } 
+                    // return the modified todo
+                    return newTodoItem
+                }
+                // return the old todo
+                return todoItem
+            })
+            
+            // update localstorage
+            localStorage.setItem("McTodos", JSON.stringify(newTodos))
+        }
     }
     
     return (

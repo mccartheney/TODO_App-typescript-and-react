@@ -3,6 +3,7 @@ import React, { createContext, FC, useEffect, useState } from 'react';
 // import component to create todos
 import TodoInputComponent from './components/todoInputComponent/TodoInputComponent';
 import TodoList from './components/todoListComponent/TodoListComponent';
+import TodoFilter from './components/todoFilterComponent/TodoFilterComponent';
 
 // create a type for todos
 export interface Todos {
@@ -50,6 +51,7 @@ const App : FC = () => {
     <TodosContext.Provider value={{ todos, setTodos }}>
       <TodoInputComponent/>
       <TodoList/>
+      <TodoFilter/>
     </TodosContext.Provider>
   );
 }
