@@ -1,0 +1,138 @@
+body {
+  min-height: 100vh;
+  background-color: #050a08;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.todoInput {
+  box-shadow: rgba(82, 170, 183, 0.1803921569) 0px 0px 50px 0px;
+  display: flex;
+  padding: 10px 20px;
+  background: #357e7b;
+}
+.todoInput .todoInput_isDone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+.todoInput .todoInput_isDone div {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+.todoInput .todoInput_input input {
+  border: none;
+  background: none;
+  padding: 10px;
+  width: 300px;
+  color: #dbf0e2;
+  font-size: 16px;
+}
+
+.todoItem {
+  display: flex;
+  padding: 5px 20px;
+  width: 380px;
+  border-bottom: 1px solid white;
+  background: #357e7b;
+}
+.todoItem .todoItem_checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+.todoItem .todoItem_checkbox input {
+  cursor: pointer;
+  margin-left: 0px;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  border: 1px solid white;
+}
+.todoItem input {
+  cursor: default;
+  border: none;
+  background: none;
+  padding: 10px;
+  width: 300px;
+  color: #dbf0e2;
+  font-size: 16px;
+}
+.todoItem input:checked {
+  background: #93d2a6;
+}
+.todoItem .checked {
+  text-decoration: line-through;
+}
+.todoItem .todoItem_edit {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.todoItem .todoItem_edit img {
+  height: 20px;
+  width: 20px;
+}
+
+.todos {
+  margin-top: 50px;
+  border-radius: 20px;
+  box-shadow: rgba(82, 170, 183, 0.1803921569) 0px 0px 50px 0px;
+}
+
+*, *:before, *:after {
+  outline: none;
+  box-sizing: border-box;
+  outline: none;
+}
+
+html, body, div, span, object, iframe, figure, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, code, em, img, small, strike, strong, sub, sup, tt, b, u, i, ol, ul, li, fieldset, form, label, table, caption, tbody, tfoot, thead, tr, th, td, main, canvas, embed, footer, header, nav, section, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: none;
+     -moz-text-size-adjust: none;
+          text-size-adjust: none;
+}
+
+footer, header, nav, section, main {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}/*# sourceMappingURL=style.css.map */

@@ -1,5 +1,6 @@
 import { FC, useContext, useEffect, useState } from "react";
 import { Todos, TodosContext } from "../../App";
+import { log } from "console";
 
 const TodoFilter : FC =  () => {
 
@@ -9,7 +10,7 @@ const TodoFilter : FC =  () => {
         return <h1>error on getting todos</h1>
     }
     const {todos, setTodos} = todosFromContext
-    
+
     const showCompleated= () => {
 
         const allTodos = localStorage.getItem("McTodos")
@@ -60,11 +61,14 @@ const TodoFilter : FC =  () => {
         showAll()
     }
 
+
     return (
         <div className="todoFilter">
             <div className="todoFilter_lefts">
                 <p> 
-                    
+                    {
+                        todos.filter((todoElement: Todos) => todoElement.done == false).length
+                    }
                 </p>
 
                 <button onClick={() => clearCompleated()}>

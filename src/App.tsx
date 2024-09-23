@@ -5,6 +5,8 @@ import TodoInputComponent from './components/todoInputComponent/TodoInputCompone
 import TodoList from './components/todoListComponent/TodoListComponent';
 import TodoFilter from './components/todoFilterComponent/TodoFilterComponent';
 
+import "./style/style.css"
+
 // create a type for todos
 export interface Todos {
   id : number,
@@ -48,11 +50,13 @@ const App : FC = () => {
   
   return (
     // create a provider for context and pass states
-    <TodosContext.Provider value={{ todos, setTodos }}>
-      <TodoInputComponent/>
-      <TodoList/>
-      <TodoFilter/>
-    </TodosContext.Provider>
+    <div className="app">
+      <TodosContext.Provider value={{ todos, setTodos }}>
+        <TodoInputComponent/>
+        <TodoList/>
+        <TodoFilter/>
+      </TodosContext.Provider>
+    </div>
   );
 }
 

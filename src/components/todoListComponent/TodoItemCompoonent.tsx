@@ -1,12 +1,13 @@
 import { FC, FormEvent, useContext, useEffect, useRef, useState } from "react"
 import { Todos, TodosContext } from "../../App"
-
+import editImage from "../../images/edit.png"
 
 const TodoItem: FC<Todos> = (props) => {
 
     // get values from
     const {value, id, done} = props
 
+    const [isActiveClass, setIsActiveClass] = useState <string> ("")
 
     // ref for input to edit todo value
     const todoInputRef = useRef <HTMLInputElement|null>(null)
@@ -20,7 +21,11 @@ const TodoItem: FC<Todos> = (props) => {
         todoInputRef.current!.readOnly = true
 
         // if this todo is compleated set checkbox to checked
-        if (done) checkBoxRef.current!.checked = true
+        if (done) {
+            checkBoxRef.current!.checked = true
+            setIsActiveClass("checked")
+        }
+        
     },[])
 
     // creating editing state to activate and desactivate readonly mode
@@ -49,8 +54,6 @@ const TodoItem: FC<Todos> = (props) => {
         // focus on input to edit
         todoInputRef.current?.focus()
     }
-
-    // TODO: on change is need change todos to 
 
     // function to change todo state
     const changeTodoState = () => {
@@ -84,6 +87,8 @@ const TodoItem: FC<Todos> = (props) => {
             })
             // update localstorage
             localStorage.setItem("McTodos", JSON.stringify(newTodos))
+
+            setTodos(newTodos)
         }
 
         
@@ -130,15 +135,13 @@ const TodoItem: FC<Todos> = (props) => {
     return (
         <form className="todoItem" id={String(id)} onSubmit={(event) => { editTodo (event)}}>
             <div className="todoItem_checkbox">
-                <input type="checkbox" ref={checkBoxRef} onClick={() => changeTodoState()}/>
+                <input className="todoContent" type="checkbox" ref={checkBoxRef} onClick={() => changeTodoState()}/>
             </div>
 
             <input type="text" ref={todoInputRef} value={todoInputValue} onChange={(e) => setTodoInputValue(e.target.value)}/>
 
-            <div onClick={() => activateEdition()}>
-                <span>
-                    edit
-                </span>
+            <div className="todoItem_edit" onClick={() => activateEdition()}>
+                <img src={editImage} alt="" />
             </div>
 
             <button type="submit" hidden ></button>
