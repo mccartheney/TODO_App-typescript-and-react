@@ -1,46 +1,83 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# To-Do App
 
-## Available Scripts
+This project is a simple To-Do application built with **React**, **TypeScript**, and **Sass**. The main goal of this project is to gain a deeper understanding of TypeScript in React while building a functional, minimalistic to-do list app.
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [Features](#features)
+- [Images](#images)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [TypeScript Concepts Covered](#typescript-concepts-covered)
+- [License](#license)
+- [Contact](#contact)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **Add Tasks**: Add new tasks to the list.
+- **Edit Tasks**: Modify existing tasks in the list.
+- **Remove Tasks**: Delete tasks from the list.
+- **Mark as Complete**: Mark tasks as completed or incomplete.
+- **Delete Completed Tasks**: Remove all tasks that have been marked as completed.
+- **Filter Tasks**: Filter tasks to view all, active, or completed tasks.
+- **Task Counter**: Display the number of tasks left to do.
 
-### `npm test`
+## Images
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Below are some screenshots or GIFs of the app in action:
 
-### `npm run build`
+**Main Interface**:
+   - ![Main Interface](./screenshots/page.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **React**: A JavaScript library for building user interfaces.
+- **TypeScript**: A superset of JavaScript that adds static typing, enhancing the development experience.
+- **Sass (Syntactically Awesome Style Sheets)**: A CSS preprocessor for more modular, maintainable, and reusable styles.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation
 
-### `npm run eject`
+To get started with the project, follow these steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/your-username/todo-app.git
+   cd todo-app
+   ```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+3. **Run the application**:
+   ```bash
+   npm start
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+This will run the app in development mode, and you can view it in your browser at [http://localhost:3000](http://localhost:3000).
 
-## Learn More
+## TypeScript Concepts Covered
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+This project covers several important **TypeScript** concepts, including:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Type Inference**: How TypeScript infers types from code context.
+- **Interfaces and Types**: Defining types and interfaces for component props, state, and reusable objects.
+- **React with TypeScript**: Using TypeScript for functional components, hooks, and managing the component state.
+- **Typing Events**: Handling typed events such as form inputs and button clicks.
+- **Optional and Default Props**: Understanding optional and default props with TypeScript.
+
+
+## License
+
+This project is licensed under the MIT License.
+
+
+## Contact
+
+Feel free to reach out if you have any questions or would like to connect!
+
+- **Email:** [mccartheney@hotmail.com](mccartheney@hotmail.com)
+- **LinkedIn:** [Mccartheney Mendes](https://www.linkedin.com/in/mccartheney-mendes-892709292/)
+- **GitHub:** [mccartheney](https://github.com/mccartheney)
