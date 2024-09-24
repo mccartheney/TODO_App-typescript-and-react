@@ -6,6 +6,8 @@ import TodoList from './components/todoListComponent/TodoListComponent';
 import TodoFilter from './components/todoFilterComponent/TodoFilterComponent';
 
 import "./style/style.css"
+import BackgroundComponent from './components/backgroundComponent/BackgroundComponent';
+import TitleComponent from './components/titleComponent/TitleComponent';
 
 // create a type for todos
 export interface Todos {
@@ -52,6 +54,8 @@ const App : FC = () => {
     // create a provider for context and pass states
     <div className="app">
       <TodosContext.Provider value={{ todos, setTodos }}>
+        <TitleComponent/>
+        <BackgroundComponent/>
         <TodoInputComponent/>
         <TodoList/>
         <TodoFilter/>

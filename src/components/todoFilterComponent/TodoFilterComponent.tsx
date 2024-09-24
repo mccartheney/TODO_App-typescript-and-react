@@ -68,7 +68,7 @@ const TodoFilter : FC =  () => {
                 <p> 
                     {
                         todos.filter((todoElement: Todos) => todoElement.done == false).length
-                    }
+                    } lefts todos
                 </p>
 
                 <button onClick={() => clearCompleated()}>
