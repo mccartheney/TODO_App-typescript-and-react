@@ -25,10 +25,10 @@ This project is a simple To-Do application built with **React**, **TypeScript**,
 
 ## Images
 
-Below are some screenshots or GIFs of the app in action:
+Below are a screenshot of the app in action:
 
 **Main Interface**:
-   - ![Main Interface](./screenshots/page.png)
+   ![Main Interface](./screenshots/page.png)
 
 ## Technologies Used
 
@@ -42,7 +42,7 @@ To get started with the project, follow these steps:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/your-username/todo-app.git
+   git clone https://github.com/mccartheney/todo_app-typescript-and-react
    cd todo-app
    ```
 
